@@ -7,11 +7,47 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/moment"></script>
     </head>
     <body>
         <div class="jumbotron text-center">
             <h1>is liz pregnant?</h1>
             <p>yes</p> 
         </div>
+
+        <h2>Time Pregnant</h2>
+        <div id="timePregnant"></div>
+
+        <!-- <h2>Weeks Pregnant</h2>
+        <div id="weeksPregnant"></div>
+
+        <h2>Days Pregnant</h2>
+        <div id="daysPregnant"></div> -->
+
+
+        <script type="text/javascript">
+            (function()
+            {
+                var now = moment();
+                var conception = moment("20190808", "YYYYMMDD");
+                var weeksPregnant = now.diff(conception, 'week');
+                var daysPregnant = now.diff(conception, 'day');
+                var remainderDaysPregnant = daysPregnant % 7;
+                var timePregnantString = weeksPregnant + " weeks & " + remainderDaysPregnant + " days"
+              
+                // // Display weeks pregnant
+                // var weeksPregnantElement = document.getElementById('weeksPregnant');
+                // weeksPregnantElement.innerHTML = weeksPregnant;
+
+                // // Display days pregnant
+                // var daysPregnantElement = document.getElementById('daysPregnant');
+                // daysPregnantElement.innerHTML = daysPregnant;
+
+                // Display time pregnant
+                var timePregnantElement = document.getElementById('timePregnant');
+                timePregnantElement.innerHTML = timePregnantString;
+              
+            })();
+            </script>
     </body>
 </html>
