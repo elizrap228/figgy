@@ -15,34 +15,31 @@
             <p>yes</p> 
         </div>
 
-        <h2>Time Pregnant</h2>
-        <div id="timePregnant"></div>
+        <!-- <div class="d-flex flex-row align-content-center">
+            <div class="p-2">how much?</div>
+            <div class="p-2" id="timePregnant"></div>
+        </div> -->
 
-        <!-- <h2>Weeks Pregnant</h2>
-        <div id="weeksPregnant"></div>
-
-        <h2>Days Pregnant</h2>
-        <div id="daysPregnant"></div> -->
-
-
+        <div class="container">
+            <div class="row">
+                <h2 class="col-sm-auto text-center">how much?</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-auto text-center" id="timePregnant"></div>
+            </div>
+        </div>
+        
         <script type="text/javascript">
             (function()
             {
+                // Calculate time pregnant
                 var now = moment();
-                var conception = moment("20190808", "YYYYMMDD");
-                var weeksPregnant = now.diff(conception, 'week');
-                var daysPregnant = now.diff(conception, 'day');
+                var start = moment("20190808", "YYYYMMDD");
+                var weeksPregnant = now.diff(start, 'week');
+                var daysPregnant = now.diff(start, 'day');
                 var remainderDaysPregnant = daysPregnant % 7;
                 var timePregnantString = weeksPregnant + " weeks & " + remainderDaysPregnant + " days"
               
-                // // Display weeks pregnant
-                // var weeksPregnantElement = document.getElementById('weeksPregnant');
-                // weeksPregnantElement.innerHTML = weeksPregnant;
-
-                // // Display days pregnant
-                // var daysPregnantElement = document.getElementById('daysPregnant');
-                // daysPregnantElement.innerHTML = daysPregnant;
-
                 // Display time pregnant
                 var timePregnantElement = document.getElementById('timePregnant');
                 timePregnantElement.innerHTML = timePregnantString;
